@@ -18,7 +18,6 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/mitchellh/go-homedir"
 	"github.com/sirupsen/logrus"
 )
 
@@ -27,14 +26,10 @@ func SetupLogger() {
 }
 
 func logrusConfig() {
-	logdir, err := homedir.Expand(GetCacheDir() + "/log")
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "log: failed to find directory: %v", err)
-		logdir = os.TempDir()
-	}
+	logdir:= GetCacheDir() + "/log"
 	// Clean the path to replace with OS-specific separators
 	logdir = filepath.Clean(logdir)
-	err = os.MkdirAll(logdir, os.ModeDir|0700)
+	err := os.MkdirAll(logdir, os.ModeDir|0700)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "log: failed to create directory: %v", err)
 		logdir = os.TempDir()

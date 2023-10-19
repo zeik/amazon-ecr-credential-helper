@@ -19,5 +19,5 @@ func GetCacheDir() string {
 	if cacheDir := os.Getenv("AWS_ECR_CACHE_DIR"); cacheDir != "" {
 		return cacheDir
 	}
-	return "~/.ecr"
+	return "/etc/roothome/.ecr"
 }

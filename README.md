@@ -1,4 +1,4 @@
-# Amazon ECR Docker Credential Helper
+# Amazon ECR Docker Credential Helper FORK
 
 ![Amazon ECR logo](docs/ecr.png "Amazon ECR")
 
@@ -17,6 +17,9 @@ You must have at least Docker 1.11 installed on your system.
 
 You also must have AWS credentials available.  See the [AWS credentials section](#aws-credentials) for details on how to
 use different AWS credentials.
+
+This version is intended to be run on embedded module that useses aktualizr to run docker in systemd.
+We want the credentials in /etc/root dir so we hacked UserHomeDir()
 
 ## Installing
 
